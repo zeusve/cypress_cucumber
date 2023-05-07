@@ -1,31 +1,37 @@
 pipeline {
     agent any
+    
     tools {
-        nodejs "node" // Instala y configura NodeJS en la máquina de Jenkins
+        // Instala y configura NodeJS en la máquina de Jenkins
+        nodejs "node"
     }
+
     stages {
         stage('Checkout') {
             steps {
-                checkout scm
+                // Checkout del código fuente
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], userRemoteConfigs: [[url: 'https://github.com/zeusve/cypress_cucumber.git']]])
             }
         }
-        stage('Install dependencies') {
+        
+        stage('Install Dependencies') {
             steps {
-                sh 'npm install' // Instala las dependencias del proyecto
+                // Instala las dependencias del proyecto
+                sh 'npm install'
             }
         }
-        stage('Run tests') {
+        
+        stage('Run Tests') {
             steps {
-                sh './node_modules/.bin/cypress run --headed --browser chrome --spec "cypress/**/*"'
-                // Ejecuta los tests de Cypress en modo headed y en Chrome
-                // Este comando asume que los archivos de especificaciones de Cypress están en la carpeta cypress/integration
+                // Ejecuta los tests con Cypress y Cucumber
+                sh 'npx cypress run --browser chrome --headless --spec "cypress/**/*"'
             }
         }
-        stage('Generate Allure report') {
+        
+        stage('Generate Allure Report') {
             steps {
-                sh './node_modules/.bin/allure generate --clean' // Genera el reporte de Allure
-                allure includeProperties: false, jdk: '', properties: [], reportBuildPolicy: 'ALWAYS',
-                       results: [[path: 'allure-results']] // Incluye el reporte de Allure en Jenkins
+                // Genera el reporte con Allure
+                sh 'npx allure generate --clean && npx allure open'
             }
         }
     }

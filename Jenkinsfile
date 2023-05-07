@@ -1,10 +1,5 @@
 pipeline {
     agent any
-    
-    tools {
-        // Instala y configura NodeJS en la máquina de Jenkins
-        nodejs "node"
-    }
 
     stages {
         stage('Checkout') {

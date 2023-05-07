@@ -2,6 +2,13 @@ pipeline {
     agent any
 
     stages {
+        
+        stage('Checkout') {
+            steps {
+                // Checkout del código fuente
+                checkout([$class: 'GitSCM', branches: [[name: '*/main']], userRemoteConfigs: [[url: 'https://github.com/zeusve/cypress_cucumber.git']]])
+            }
+        }
        
         stage('Run Tests') {
             steps {

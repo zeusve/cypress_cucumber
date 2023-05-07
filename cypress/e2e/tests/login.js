@@ -1,4 +1,8 @@
 import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
+import { LoginUI } from "../ui/loginUI";
+import { EnterText } from "../actions/enterText";
+import { ButtonClick } from "../actions/buttonClick";
+
 
 Given("A user enters to the login page", () => {
     cy.visit('/');
@@ -7,15 +11,15 @@ Given("A user enters to the login page", () => {
 
 
 When('A user enters the username {string}', (username) => {
-    cy.get('#user-name').type(username);
+    EnterText.Text(LoginUI.userInput(), username);
 });
 
 When('A user enters the password {string}', (password) => {
-    cy.get('#password').type(password);
+    EnterText.Text(LoginUI.passwordInput(), password);
 });
 
 When('A user clicks on the login button', () => {
-    cy.get('#login-button').click();
+    ButtonClick.Click(LoginUI.loginButton());
 });
 
 Then('A user will be logged in', () => {

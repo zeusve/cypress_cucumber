@@ -9,17 +9,10 @@ pipeline {
             }
         }
         
-        stage('Install Dependencies') {
-            steps {
-                // Instala las dependencias del proyecto
-                sh 'npm install'
-            }
-        }
-        
         stage('Run Tests') {
             steps {
                 // Ejecuta los tests con Cypress y Cucumber
-                sh 'npx cypress run --browser chrome --headless --spec "cypress/**/*"'
+                sh 'npx cypress run --browser chrome --headless'
             }
         }
         

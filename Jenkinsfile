@@ -7,7 +7,7 @@ pipeline {
     }
     
     options {
-        colorezeOutput(ansiColor('xterm'))
+        colorizeOutput(ansiColor('xterm'))
     }
 
     stages {

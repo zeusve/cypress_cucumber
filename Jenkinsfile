@@ -5,10 +5,6 @@ pipeline {
         string(name: 'SPEC', defaultValue: 'cypress/**/**', description: 'Ej: cypress/**/**.feature')
         choice(name: 'BROWSER', choices: ['chrome', 'edge', 'firefox'], description: 'Pick the web browser you want to use to run your scripts')
     }
-    
-    options {
-        colorizeOutput(ansiColor('xterm'))
-    }
 
     stages {
         

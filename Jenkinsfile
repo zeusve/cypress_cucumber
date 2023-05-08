@@ -1,26 +1,35 @@
 pipeline {
     agent any
+    
+    parameters {
+        string(name: 'SPEC', defaultValue: 'cypress/**/**', description: 'Ej: cypress/**/**.feature')
+        choice(name: 'BROWSER', choices: ['chrome', 'edge', 'firefox'], description: 'Pick the web browser you want to use to run your scripts')
+    }
+    
+    options {
+        ansiColor('xterm')
+    }
 
     stages {
         
-        stage('Checkout') {
+        stage('Build'){
+            //The steps section defines a series of one or more steps to be executed in a given stage directive.
             steps {
-                // Checkout del código fuente
-                checkout([$class: 'GitSCM', branches: [[name: '*/main']], userRemoteConfigs: [[url: 'https://github.com/zeusve/cypress_cucumber.git']]])
+                echo "Building the application"
             }
         }
        
         stage('Run Tests') {
             steps {
                 // Ejecuta los tests con Cypress y Cucumber
-                sh 'npx cypress run --browser chrome --headless'
+                bat 'npx cypress run --browser chrome --headless'
             }
         }
         
         stage('Generate Allure Report') {
             steps {
                 // Genera el reporte con Allure
-                sh 'npx allure generate --clean && npx allure open'
+                bat 'npx allure generate --clean && npx allure open'
             }
         }
     }

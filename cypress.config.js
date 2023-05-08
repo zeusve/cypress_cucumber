@@ -4,6 +4,7 @@ const preprocessor = require("@badeball/cypress-cucumber-preprocessor");
 const createEsbuildPlugin = require("@badeball/cypress-cucumber-preprocessor/esbuild");
 
 module.exports = defineConfig({
+  nodePath: "C:\Program Files\nodejs\node.exe",
   e2e: {
     baseUrl: "https://www.saucedemo.com/",
     chromeWebSecurity: false,

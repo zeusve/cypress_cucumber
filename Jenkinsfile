@@ -15,8 +15,13 @@ pipeline {
                 bat 'npm install'
                 bat 'npx cypress verify'
             }
+        
+        
+            steps {
+                bat "curl -o allure-2.14.0.tgz -Ls https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/2.14.0/allure-commandline-2.14.0.tgz"
+                bat "tar -zxvf allure-2.14.0.tgz"
+            }
         }
-
         
         stage('Build'){
             //The steps section defines a series of one or more steps to be executed in a given stage directive.

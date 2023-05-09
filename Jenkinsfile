@@ -10,6 +10,14 @@ pipeline {
 
     stages {
         
+        stage('Install Dependencies') {
+            steps {
+                bat 'npm install'
+                bat 'npx cypress verify'
+            }
+        }
+
+        
         stage('Build'){
             //The steps section defines a series of one or more steps to be executed in a given stage directive.
             steps {

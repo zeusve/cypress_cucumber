@@ -14,10 +14,6 @@ pipeline {
             steps {
                 bat 'npm install'
                 bat 'npx cypress verify'
-            }
-        
-        
-            steps {
                 bat "curl -o allure-2.14.0.tgz -Ls https://repo.maven.apache.org/maven2/io/qameta/allure/allure-commandline/2.14.0/allure-commandline-2.14.0.tgz"
                 bat "tar -zxvf allure-2.14.0.tgz"
             }

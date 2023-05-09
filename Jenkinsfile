@@ -33,7 +33,8 @@ pipeline {
         
         stage('Generate Allure Report') {
             steps {
-                bat 'npx allure-commandline-2.22.0 generate --clean && npx allure-commandline-2.22.0 open'
+                bat 'allure generate allure-results --clean'
+                bat 'allure open'
             }
         }
     }

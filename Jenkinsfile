@@ -27,15 +27,10 @@ pipeline {
        
         stage('Run Tests') {
             steps {
-                bat "npx cypress run --browser ${params.BROWSER} --headless"
+                bat "npx cypress run --browser ${params.BROWSER} --headless --env allure=true"
             }
         }
 
-        stage('Copy Allure Results') {
-            steps {
-                bat 'npm run copy-results'
-            }
-        }
         
         stage('Generate Allure Report') {
             steps {

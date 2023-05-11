@@ -30,11 +30,17 @@ pipeline {
                 bat "npx cypress run --browser ${params.BROWSER} --headless"
             }
         }
+
+        stage('Copy Allure Results') {
+            steps {
+                bat 'npm run copy-results'
+            }
+        }
         
         stage('Generate Allure Report') {
             steps {
-                bat 'allure generate allure-results --clean'
-                bat 'allure open'
+                bat "npm allure generate allure-results --clean -o allure-report",
+                bat "npm allure open allure-report"
             }
         }
     }

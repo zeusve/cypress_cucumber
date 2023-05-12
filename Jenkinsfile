@@ -31,6 +31,13 @@ pipeline {
             }
         }
 
+        stage('Allure Report') {
+            steps {
+                bat 'allure generate allure-results --clean && allure open'
+            }
+        }
+
+
 
     }
 }

@@ -33,13 +33,13 @@ pipeline {
 
         stage('Allure Report') {
             steps {
-                bat 'allure generate allure-results --clean -o allure-report'
+                bat 'npx allure generate allure-results --clean -o allure-report'
             }
         }
 
         stage('Open Allure report') {
             steps {
-                bat 'allure open'
+                bat 'npx allure open'
             }
         }
 

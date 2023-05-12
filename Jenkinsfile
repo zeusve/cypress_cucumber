@@ -31,17 +31,10 @@ pipeline {
             }
         }
 
-        stage('Allure report') {
+        stage('Allure Report') {
             steps {
-                bat 'allure generate allure-results --clean'
-                    allure([
-                        includeProperties: false,
-                        jdk: '',
-                        properties: [],
-                        reportBuildPolicy: 'ALWAYS',
-                        results: [[path: 'allure-results']]
-                    ])
-                }
+                bat 'allure generate allure-results --clean -o allure-report'
+            }
         }
 
         stage('Open Allure report') {
@@ -49,7 +42,6 @@ pipeline {
                 bat 'allure open'
             }
         }
-
 
 
 

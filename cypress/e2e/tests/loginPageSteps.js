@@ -1,5 +1,5 @@
 import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
-import { loginPage } from "../pages/loginPage";
+import {loginPage} from "../pages/LoginPage";
 import { Assertion } from "chai";
 
 
@@ -24,5 +24,5 @@ Then('A user will be logged in inventory page', () => {
 });
 
 Then('A user should be shown an error message', () => {
-    Assertion(loginPage.errorMessage().should('be.visible'));
+    Assertion(loginPage.elements.errorMessage().should('be.visible'));
 });

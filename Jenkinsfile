@@ -37,13 +37,6 @@ pipeline {
             }
         }
 
-        stage('Open Allure report') {
-            steps {
-                bat 'npx allure open'
-            }
-        }
-
-
 
     }
 }

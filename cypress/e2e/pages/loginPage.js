@@ -33,6 +33,13 @@ class LoginPage {
         cy.log('Clicking on the login button');
         this.elements.loginButton().should('be.visible').click();
     }
+
+    login(){
+        this.navigate();
+        this.enterUsername("standard_user");
+        this.enterPassword("secret_sauce");
+        this.clickLoginButton();
+    }
     
 }
 

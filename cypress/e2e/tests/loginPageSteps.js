@@ -1,6 +1,8 @@
 import { Given, When, Then } from "@badeball/cypress-cucumber-preprocessor";
-import {loginPage} from "../pages/LoginPage";
 import { Assertion } from "chai";
+import { loginPage } from "../pages/loginPage";
+import { inventoryPage } from "../pages/inventoryPage";
+
 
 
 Given("A user enters to the login page", () => {
@@ -20,7 +22,7 @@ When('A user clicks on the login button', () => {
 
 
 Then('A user will be logged in inventory page', () => {
-    cy.url().should('include', '/inventory.html');
+    Assertion(cy.url().should('eq',inventoryPage.constants.INVENTORY_URL));
 });
 
 Then('A user should be shown an error message', () => {

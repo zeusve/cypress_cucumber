@@ -37,6 +37,14 @@ pipeline {
             }
         }
 
+        stage('Configure Allure') {
+            steps {
+                script {
+                    allure includeProperties: false, jdk: '', results: [[path: 'allure-results']]
+                }
+            }
+        }
+
 
     }
 }

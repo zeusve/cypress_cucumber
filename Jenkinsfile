@@ -27,15 +27,24 @@ pipeline {
        
         stage('Run Tests') {
             steps {
-                bat "npx cypress run --browser ${params.BROWSER} --headless"
+                bat "npx cypress run --browser ${params.BROWSER} --headless --env allure=true"
             }
         }
-        
-        stage('Generate Allure Report') {
+
+        stage('Allure Report') {
             steps {
-                bat 'allure generate allure-results --clean'
-                bat 'allure open'
+                bat 'npx allure generate allure-results --clean -o allure-report'
             }
         }
+
+        stage('Configure Allure') {
+            steps {
+                script {
+                    allure includeProperties: false, jdk: '', results: [[path: 'allure-results']]
+                }
+            }
+        }
+
+
     }
 }

@@ -8,6 +8,9 @@ RUN git clone https://github.com/zeusve/cypress_cucumber.git /app
 WORKDIR /app
 
 # Copia los archivos de configuración de Cypress
+COPY cypress.config.js .
+COPY cypress .
+COPY ./cypress .
 
 
 # Instala las dependencias

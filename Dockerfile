@@ -8,9 +8,7 @@ RUN git clone https://github.com/zeusve/cypress_cucumber.git /app
 WORKDIR /app
 
 # Copia los archivos de configuración de Cypress
-COPY cypress.config.js /app
-COPY cypress /app
-COPY ./cypress /app
+
 
 # Instala las dependencias
 # Ejecutar las pruebas y generar el reporte de Allure

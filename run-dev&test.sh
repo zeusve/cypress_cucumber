@@ -1,6 +1,7 @@
 #!/bin/sh
 
-npm install cypress-cucumber-preprocessor @bahmutov/cypress-esbuild-preprocessor allure-commandline --save-dev
+npm install 
+npm i -D cypress @bahmutov/cypress-esbuild-preprocessor esbuild
 npm outdated
 npm update
 npm run test

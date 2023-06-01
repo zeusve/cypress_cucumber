@@ -1,7 +1,8 @@
 #!/bin/sh
 
 npm install 
-npm i -D cypress @bahmutov/cypress-esbuild-preprocessor esbuild
+npm install -D @bahmutov/cypress-esbuild-preprocessor
+npm install -D @esbuild-plugins/node-modules-polyfill
 npm outdated
 npm update
 npm run test

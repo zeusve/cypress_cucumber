@@ -1,5 +1,5 @@
 # Imagen con cypress
-FROM cypress/included:7.7.0
+FROM cypress/included:12.3.0
 
 # Clonar el repositorio dentro del contenedor
 RUN git clone https://github.com/zeusve/cypress_cucumber.git /app

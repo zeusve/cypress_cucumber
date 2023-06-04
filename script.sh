@@ -5,8 +5,7 @@ apt-get update
 apt-get install -y curl wget git openjdk-11-jdk
 curl -sL https://deb.nodesource.com/setup_14.x | bash -
 apt install nodejs -y
-git clone https://github.com/zeusve/cypress_cucumber.git
-cd cypress_cucumber
+cd app
 export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 dpkg -i google-chrome-stable_current_amd64.deb

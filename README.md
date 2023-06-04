@@ -4,8 +4,9 @@ En este tutorial, aprenderemos cómo **dockerizar** un proyecto y ejecutar el ar
 
 ## Paso 1: Preparar el entorno
 
-Descargar e instalar docker en su máquina [Download Docker][1]
-[1]: https://www.docker.com/products/docker-desktop/ "Docker"
+Descargar e instalar docker en su máquina pincha aquí    [![download docker](https://img.icons8.com/?size=1x&id=22813&format=png "download docker")](https://img.icons8.com/?size=1x&id=22813&format=png "download docker")
+
+------------
 
 ## Paso 2: Clona el repositorio y navega hasta el mismo
 
@@ -34,10 +35,8 @@ docker run -it cypress_cucumber
 ./script.sh
 ```
 
-## Paso 6: Lanza los casos de prueba
+## Paso 5: Lanza los casos de prueba
 
 ```bash
 npx run cypress --browser chrome --spec cypress/**/* --env allure=true
 ```
-
-

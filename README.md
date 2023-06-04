@@ -1,14 +1,14 @@
-#  Dockerización de Proyecto y Ejecución de script.sh
+#  Dockerizing Project and Running script.sh
 
-En este tutorial, aprenderemos cómo **dockerizar** un proyecto y ejecutar el archivo **script.sh** desde un contenedor Docker.
+In this tutorial, we will learn how to **dockerize** a project and run the **script.sh** file from a Docker container.
 
-## Paso 1: Preparar el entorno
+## Step 1: Prepare the enviroment
 
-Descargar e instalar docker en su máquina pincha aquí    [![download docker](https://img.icons8.com/?size=1x&id=22813&format=png "download docker")](https://img.icons8.com/?size=1x&id=22813&format=png "download docker")
+Download and install Docker on your machine by clicking here:    [![download docker](https://img.icons8.com/?size=1x&id=22813&format=png "download docker")](https://img.icons8.com/?size=1x&id=22813&format=png "download docker")
 
 ------------
 
-## Paso 2: Clona el repositorio y navega hasta el mismo
+## Step 2: Clone the repository and navigate to it
 
 ```bash
 git clone https://github.com/zeusve/cypress_cucumber.git
@@ -17,26 +17,27 @@ cd cypress_cucumber
 
 ```
 
-## Paso 3: Ejecuta el archivo Dockerfile
+## Step 3: Build the Docker image
 
 ```bash
 docker build -t cypress_cucumber .
 ```
 
-## Paso 4: Iniciar la imagen Docker
+## Step 4: Start the Docker container
 
 ```bash
 docker run -it cypress_cucumber
 ```
 
-## Paso 5: Ejecuta el archivo script.sh en la imagen de docker
+## Step 5: Execute the script.sh file in the Docker image
 
 ```bash
 ./script.sh
 ```
 
-## Paso 5: Lanza los casos de prueba
+## Step 6: Run the test cases
 
 ```bash
 npx run cypress --browser chrome --spec cypress/**/* --env allure=true
 ```
+</body>

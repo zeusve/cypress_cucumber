@@ -38,6 +38,6 @@ docker run -it cypress_cucumber
 ## Step 6: Run the test cases
 
 ```bash
-npx run cypress --browser chrome --spec cypress/**/* --env allure=true
+npx cypress run --browser chrome --spec cypress/**/* --env allure=true
 ```
 </body>

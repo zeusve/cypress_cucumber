@@ -8,8 +8,8 @@ apt-get upgrade -y
 apt-get install -y curl wget git openjdk-11-jdk
 
 # Download Node.js, install Node.js and npm
-curl -sL https://deb.nodesource.com/setup_14.x | bash -
-apt-get install -y nodejs npm
+curl -fsSL https://deb.nodesource.com/setup_20.x | sudo -E bash - &&\
+apt-get install -y nodejs
 
 # Configure Java path
 export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64

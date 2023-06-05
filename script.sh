@@ -17,12 +17,6 @@ export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 dpkg -i google-chrome-stable_current_amd64.deb
 
-# Clone repository
-git clone https://github.com/zeusve/cypress_cucumber.git 
-
-# Change to the project directory
-cd cypress_cucumber
-
 # Changue permissions of the script.sh
 chmod +x script.sh
 

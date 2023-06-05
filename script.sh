@@ -1,9 +1,5 @@
 #!/bin/sh
 
-# Update Ubuntu
-apt-get update
-apt-get upgrade -y
-
 # Update and Install git
 apt update -y && apt install -y git
 
@@ -16,12 +12,6 @@ export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 # Download Chrome and install
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 dpkg -i google-chrome-stable_current_amd64.deb
-
-# Changue permissions of the script.sh
-chmod +x script.sh
-
-# Install necessary libraries for project execution
-apt-get install -y xvfb libgtk-3-0 libgbm1
 
 # Fix potential broken dependencies
 apt-get -f install -y
@@ -41,3 +31,6 @@ echo "deb http://ppa.launchpad.net/qameta/allure/ubuntu trusty main" | tee -a /e
 apt-get update
 apt-get install -y allure
 npm install -g allure-commandline
+
+# Install necessary libraries for project execution
+apt install -y xvfb libgtk-3-0 libgbm1 -y

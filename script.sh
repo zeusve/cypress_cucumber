@@ -18,8 +18,6 @@ export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 dpkg -i google-chrome-stable_current_amd64.deb
 
-# Change directory to 'app'
-cd app
 
 # Install necessary libraries for project execution
 apt-get install -y xvfb libgtk-3-0 libgbm1
@@ -30,11 +28,11 @@ apt-get update
 apt-get install -y allure
 npm install -g allure-commandline
 
+# Fix potential broken dependencies
+apt-get -f install -y
+
 # Install Cypress
 npm install cypress
 
 # Install project dependencies
 npm install
-
-# Fix potential broken dependencies
-apt-get -f install -y

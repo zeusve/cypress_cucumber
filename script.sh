@@ -1,20 +1,20 @@
 #!/bin/sh
 
-# Update ubuntu
+# Update Ubuntu
 apt-get update
+apt-get upgrade -y
 
-# Install curl, web get, git and java
+# Install curl, wget, git, and Java
 apt-get install -y curl wget git openjdk-11-jdk
 
-# Download nodejs, install nodejs and node package manager
+# Download Node.js, install Node.js and npm
 curl -sL https://deb.nodesource.com/setup_14.x | bash -
-apt install nodejs -y
-apt install npm -y
+apt-get install -y nodejs npm
 
-# Config Java path
-export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64ls 
+# Configure Java path
+export JAVA_HOME=/usr/lib/jvm/java-11-openjdk-amd64
 
-# Download chrome and install
+# Download Chrome and install
 wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
 dpkg -i google-chrome-stable_current_amd64.deb
 
@@ -22,18 +22,19 @@ dpkg -i google-chrome-stable_current_amd64.deb
 cd app
 
 # Install necessary libraries for project execution
-apt install xvfb -y && apt install libgtk-3-0 -y && apt install libgbm1 -y 
+apt-get install -y xvfb libgtk-3-0 libgbm1
 
-# Add tthis line at the end of the file /etc/apt/sources.list, install allure and allure comandline
+# Add this line at the end of the file /etc/apt/sources.list, install Allure and Allure commandline
 echo "deb http://ppa.launchpad.net/qameta/allure/ubuntu trusty main" | tee -a /etc/apt/sources.list
-apt install allure -y
+apt-get update
+apt-get install -y allure
 npm install -g allure-commandline
 
-# Install cypress
+# Install Cypress
 npm install cypress
 
 # Install project dependencies
-npm install 
+npm install
 
 # Fix potential broken dependencies
-apt -f install -y
+apt-get -f install -y

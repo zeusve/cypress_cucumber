@@ -48,7 +48,7 @@ pipeline {
         stage('Notify Telegram') {
             steps {
                 script {
-                    telegramSend(message: "The build is OK")
+                    telegramSend(chatId: 6006691816, message: "The build is OK")
                 }
             }
         }

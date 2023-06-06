@@ -35,20 +35,22 @@ pipeline {
             }
         }
 
-        post {
-       // only triggered when blue or green sign
-            success {
-                slackSend channel: 'jenkins-notify', message: 'SUCCES'
+        stage('Post build') {
+            post {
+                // only triggered when blue or green sign
+                success {
+                    slackSend channel: 'jenkins-notify', message: 'SUCCES'
+                }
+                // triggered when red sign
+                failure {
+                    slackSend channel: 'jenkins-notify', message: 'FAILURE'
+                }
+                // trigger every-works
+                always {
+                    slackSend channel: 'jenkins-notify', message: 'ALWAYS'
+                }
             }
-            // triggered when red sign
-            failure {
-                slackSend channel: 'jenkins-notify', message: 'FAILURE'
-            }
-            // trigger every-works
-            always {
-                slackSend channel: 'jenkins-notify', message: 'ALWAYS'
-            }
-    }
+        }
 
 
     }

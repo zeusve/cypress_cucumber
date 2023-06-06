@@ -4,6 +4,7 @@ pipeline {
     parameters {
         string(name: 'SPEC', defaultValue: 'cypress/**/**', description: 'Ej: cypress/**/**.feature')
         choice(name: 'BROWSER', choices: ['chrome', 'edge', 'firefox'], description: 'Pick the web browser you want to use to run your scripts')
+        string(name: 'telegram_chat_id', defaultValue: '', description: 'Telegram Chat ID')
     }
 
     stages {
@@ -41,6 +42,17 @@ pipeline {
             steps {
                 script {
                     allure includeProperties: false, jdk: '', results: [[path: 'allure-results']]
+                }
+            }
+        }
+
+        stage('Notify Telegram') {
+            when {
+                expression { env.TELEGRAM_CHAT_ID != '' }
+            }
+            steps {
+                script {
+                    telegramSend(chatId: env.TELEGRAM_CHAT_ID, message: "The build is OK")
                 }
             }
         }

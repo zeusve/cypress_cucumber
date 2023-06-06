@@ -4,7 +4,6 @@ pipeline {
     parameters {
         string(name: 'SPEC', defaultValue: 'cypress/**/**', description: 'Ej: cypress/**/**.feature')
         choice(name: 'BROWSER', choices: ['chrome', 'edge', 'firefox'], description: 'Pick the web browser you want to use to run your scripts')
-        string(name: 'telegram_chat_id', defaultValue: '', description: 'Telegram Chat ID')
     }
 
     stages {
@@ -47,12 +46,9 @@ pipeline {
         }
 
         stage('Notify Telegram') {
-            when {
-                expression { params.telegram_chat_id != '' }
-            }
             steps {
                 script {
-                    telegramSend(chatId: params.telegram_chat_id, message: "The build is OK")
+                    telegramSend("The build is OK")
                 }
             }
         }

@@ -35,11 +35,9 @@ pipeline {
             }
         }
 
-        stage('Notify Telegram') {
-            steps {
-                script {
-                    telegramSend(chatId: 6006691816, message: "The build is OK")
-                }
+        post {
+            always {
+                slackSend channel: 'jenkins-notify', message: 'Allure report available'
             }
         }
 

@@ -48,7 +48,7 @@ pipeline {
 
         stage('Notify Telegram') {
             when {
-                expression { env.TELEGRAM_CHAT_ID != '' }
+                expression { env.telegram_chat_id != '' }
             }
             steps {
                 script {

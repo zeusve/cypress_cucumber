@@ -39,6 +39,10 @@ pipeline {
 
  
         post {
+                // trigger every-works
+            always {
+                slackSend channel: 'jenkins-notify', message: 'RUN FINISH'
+            }
                 // only triggered when blue or green sign
             success {
                 slackSend channel: 'jenkins-notify', message: 'SUCCES'
@@ -47,10 +51,7 @@ pipeline {
             failure {
                 slackSend channel: 'jenkins-notify', message: 'FAILURE'
             }
-                // trigger every-works
-            always {
-                slackSend channel: 'jenkins-notify', message: 'ALWAYS'
-            }
+            
         }
  
 }

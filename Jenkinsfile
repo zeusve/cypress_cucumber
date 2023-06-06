@@ -49,6 +49,7 @@ pipeline {
             // triggered when red sign
             failure {
                 slackSend channel: 'jenkins-notify', message: 'FAILURE'
+            }
             // trigger every-works
             always {
                 slackSend channel: 'jenkins-notify', message: 'ALWAYS'

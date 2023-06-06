@@ -48,11 +48,11 @@ pipeline {
 
         stage('Notify Telegram') {
             when {
-                expression { env.telegram_chat_id != '' }
+                expression { params.telegram_chat_id != '' }
             }
             steps {
                 script {
-                    telegramSend(chatId: env.telegram_chat_id, message: "The build is OK")
+                    telegramSend(chatId: params.telegram_chat_id, message: "The build is OK")
                 }
             }
         }

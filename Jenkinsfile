@@ -36,12 +36,6 @@ pipeline {
         }
 
         post {
-            always {
-                slackSend channel: 'jenkins-notify', message: 'Allure report available'
-            }
-        }
-
-        post {
        // only triggered when blue or green sign
             success {
                 slackSend channel: 'jenkins-notify', message: 'SUCCES'

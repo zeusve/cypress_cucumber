@@ -52,7 +52,7 @@ pipeline {
             }
             steps {
                 script {
-                    telegramSend(chatId: env.TELEGRAM_CHAT_ID, message: "The build is OK")
+                    telegramSend(chatId: env.telegram_chat_id, message: "The build is OK")
                 }
             }
         }

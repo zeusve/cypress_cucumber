@@ -45,11 +45,11 @@ pipeline {
             }
                 // only triggered when blue or green sign
             success {
-                slackSend channel: 'jenkins-notify', message: 'SUCCES'
+                slackSend channel: 'jenkins-notify', message: 'Succes'
             }
                 // triggered when red sign
             failure {
-                slackSend channel: 'jenkins-notify', message: 'FAILURE'
+                slackSend channel: 'jenkins-notify', message: 'Failure'
             }
             
         }
